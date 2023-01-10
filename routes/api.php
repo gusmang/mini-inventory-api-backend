@@ -4,6 +4,8 @@ use App\Http\Controllers\Api\BarangController;
 use App\Http\Controllers\Api\KategoriController;
 use App\Http\Controllers\Api\SupplierController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\PembelianController;
+use App\Http\Controllers\Api\PenjualanController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -48,16 +50,16 @@ Route::middleware('auth:api')
         });
 
         Route::group(['namespace' => 'pembelian', 'prefix' => 'pembelian'], function () {
-            Route::post('list', [KategoriController::class, 'getSupplier']);
-            Route::post('add', [KategoriController::class, 'addSupplier']);
-            Route::put('update/{index}', [KategoriController::class, 'updateKSupplier']);
-            Route::delete('softdelete/{index}', [KategoriController::class, 'softDelete']);
+            Route::post('list', [PembelianController::class, 'getPembelian']);
+            Route::post('add', [PembelianController::class, 'addPembelian']);
+            Route::put('update/{index}', [PembelianController::class, 'updateKSupplier']);
+            Route::delete('softdelete/{index}', [PembelianController::class, 'softDelete']);
         });
 
         Route::group(['namespace' => 'penjualan', 'prefix' => 'penjualan'], function () {
-            Route::post('list', [KategoriController::class, 'getSupplier']);
-            Route::post('add', [KategoriController::class, 'addSupplier']);
-            Route::put('update/{index}', [KategoriController::class, 'updateKSupplier']);
-            Route::delete('softdelete/{index}', [KategoriController::class, 'softDelete']);
+            Route::post('list', [PenjualanController::class, 'getPenjualan']);
+            Route::post('add', [PenjualanController::class, 'addPenjualan']);
+            Route::put('update/{index}', [PenjualanController::class, 'updateKSupplier']);
+            Route::delete('softdelete/{index}', [PenjualanController::class, 'softDelete']);
         });
     });

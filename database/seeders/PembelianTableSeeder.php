@@ -39,13 +39,12 @@ class PembelianTableSeeder extends Seeder
             $getPembelian = Pembelian::where("id", $pembelianId)->firstOrfail();
 
             $total_harga = 0;
+            $total_item = 0;
             for ($an = 1; $an <= $this->qty; $an++) {
                 $barang = Barang::inRandomOrder()->first();
                 $qtybarang = rand(1, 10);
 
-                if ($barang->stok < $qtybarang) {
-                    continue;
-                }
+                $total_item++;
 
                 Pembelian_Detail::create([
                     'user_id' => $getPembelian->user_id,
@@ -58,12 +57,13 @@ class PembelianTableSeeder extends Seeder
                 ]);
 
                 Barang::where("id", $barang->id)->update(array(
-                    'stok' => $barang->stok - $qtybarang
+                    'stok' => $barang->stok + $qtybarang
                 ));
                 $total_harga += $barang->harga_beli * $qtybarang;
             }
 
             Pembelian::where("id", $pembelianId)->update(array(
+                "total_item" => $total_item,
                 'total_bayar' => $total_harga,
             ));
             //

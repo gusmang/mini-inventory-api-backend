@@ -37,6 +37,7 @@ class PenjualanTableSeeder extends Seeder
             $getPembelian = Penjualan::where("id", $penjualanId)->firstOrfail();
 
             $total_harga = 0;
+            $total_item = 0;
             for ($an = 1; $an <= $this->qty; $an++) {
                 $barang = Barang::inRandomOrder()->first();
                 $qtybarang = rand(1, 10);
@@ -44,6 +45,8 @@ class PenjualanTableSeeder extends Seeder
                 if ($barang->stok < $qtybarang) {
                     continue;
                 }
+
+                $total_item++;
 
                 Penjualan_Detail::create([
                     'user_id' => $getPembelian->user_id,
@@ -62,6 +65,8 @@ class PenjualanTableSeeder extends Seeder
             }
 
             Penjualan::where("id", $penjualanId)->update(array(
+                "total_item" => $total_item,
+                'total_bayar' => $total_harga,
                 'diterima' => $total_harga,
             ));
             //
