@@ -1,0 +1,716 @@
+{
+	"info": {
+		"_postman_id": "51dce241-247c-48b2-92d9-25705df14d92",
+		"name": "Mini-Inventory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4172332"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"xmiller@example.org\",\n    \"password\" : \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_invent}}/login",
+							"host": [
+								"{{url_invent}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "barang",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_backend}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url_invent}}/barang/list",
+							"host": [
+								"{{url_invent}}"
+							],
+							"path": [
+								"barang",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_backend}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama_produk",
+									"value": "Richeese add 1",
+									"type": "default"
+								},
+								{
+									"key": "foto_produk",
+									"type": "file",
+									"src": "/Users/macbookair/Downloads/3resize.jpg"
+								},
+								{
+									"key": "id_kategori",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "kode_produk",
+									"value": "cat-000002",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "harga_beli",
+									"value": "10000",
+									"type": "default"
+								},
+								{
+									"key": "harga_jual",
+									"value": "11500",
+									"type": "default"
+								},
+								{
+									"key": "stok",
+									"value": "55",
+									"type": "default"
+								},
+								{
+									"key": "user_id",
+									"value": "",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_invent}}/barang/add",
+							"host": [
+								"{{url_invent}}"
+							],
+							"path": [
+								"barang",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_backend}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url_invent}}/barang/delete/2",
+							"host": [
+								"{{url_invent}}"
+							],
+							"path": [
+								"barang",
+								"delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_backend}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama_produk",
+									"value": "Richeese 3 New Update",
+									"type": "default"
+								},
+								{
+									"key": "foto_produk",
+									"type": "file",
+									"src": "/Users/macbookair/Downloads/7.jpg"
+								},
+								{
+									"key": "id_kategori",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "kode_produk",
+									"value": "cat-000002",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "harga_beli",
+									"value": "11000",
+									"type": "default"
+								},
+								{
+									"key": "harga_jual",
+									"value": "12000",
+									"type": "default"
+								},
+								{
+									"key": "stok",
+									"value": "65",
+									"type": "default"
+								},
+								{
+									"key": "user_id",
+									"value": "",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_invent}}/barang/update/3",
+							"host": [
+								"{{url_invent}}"
+							],
+							"path": [
+								"barang",
+								"update",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_backend}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url_invent}}/getUser",
+							"host": [
+								"{{url_invent}}"
+							],
+							"path": [
+								"getUser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "kategori",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_backend}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url_invent}}/kategori/list",
+							"host": [
+								"{{url_invent}}"
+							],
+							"path": [
+								"kategori",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_backend}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nama_kategori\" : \"Makanan Ringan\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_invent}}/kategori/add",
+							"host": [
+								"{{url_invent}}"
+							],
+							"path": [
+								"kategori",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_backend}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\" : 3,\n    \"nama_kategori\" : \"Makanan Ringan Updates\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_invent}}/kategori/update/3",
+							"host": [
+								"{{url_invent}}"
+							],
+							"path": [
+								"kategori",
+								"update",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_backend}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\" : 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_invent}}/kategori/softdelete/3",
+							"host": [
+								"{{url_invent}}"
+							],
+							"path": [
+								"kategori",
+								"softdelete",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "supplier",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_backend}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url_invent}}/supplier/list",
+							"host": [
+								"{{url_invent}}"
+							],
+							"path": [
+								"supplier",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_backend}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nama\" : \"Joko Purnomo\",\n    \"email\" : \"jokopur@gmail.com\",\n    \"telepon\" : \"+6281999001222\",\n    \"alamat\" : \"Jl. katrangan Gg. 3 No.23\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_invent}}/supplier/add",
+							"host": [
+								"{{url_invent}}"
+							],
+							"path": [
+								"supplier",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_backend}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\" : 3,\n    \"nama\" : \"Joko Purnomo Edit\",\n    \"telepon\" : \"+6281999112322\",\n    \"alamat\" : \"Jl. katrangan Gg. 3 No.23 Edited\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_invent}}/supplier/update/3",
+							"host": [
+								"{{url_invent}}"
+							],
+							"path": [
+								"supplier",
+								"update",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_backend}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_invent}}/supplier/softdelete/1",
+							"host": [
+								"{{url_invent}}"
+							],
+							"path": [
+								"supplier",
+								"softdelete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "pembelian",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_backend}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url_invent}}/pembelian/list",
+							"host": [
+								"{{url_invent}}"
+							],
+							"path": [
+								"pembelian",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_backend}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id_supplier\" : 5,\n    \"total_item\" : 0,\n    \"diskon\" : 0,\n    \"total_bayar\" : 0,\n    \"item\" : [{\n        \"id_barang\" : 3,\n        \"qty\" : 1\n    },\n    {\n        \"id_barang\" : 5,\n        \"qty\" : 3\n    },\n    {\n        \"id_barang\" : 7,\n        \"qty\" : 5\n    }]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_invent}}/pembelian/add",
+							"host": [
+								"{{url_invent}}"
+							],
+							"path": [
+								"pembelian",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "penjualan",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_backend}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url_invent}}/penjualan/list",
+							"host": [
+								"{{url_invent}}"
+							],
+							"path": [
+								"penjualan",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_backend}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"total_item\" : 0,\n    \"diskon\" : 0,\n    \"total_bayar\" : 0,\n    \"diterima\" : 1000000,\n    \"item\" : [{\n        \"id_barang\" : 3,\n        \"qty\" : 1\n    },\n    {\n        \"id_barang\" : 5,\n        \"qty\" : 3\n    },\n    {\n        \"id_barang\" : 8,\n        \"qty\" : 5\n    }]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_invent}}/penjualan/add",
+							"host": [
+								"{{url_invent}}"
+							],
+							"path": [
+								"penjualan",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
