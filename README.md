@@ -19,3 +19,12 @@ Untuk menjalankan aplikasi terdapat beberapa tahapan diantaranya : <p></p>
 <li>Run php artisan db:seed ( Import data ke Database menggunakan seeder data )</li>
 <li>Run Passport Install ( install keperluan proteksi API dengan token JWT )</li>
 </ul>
+
+<p></p>
+
+Disertakan juga file pendukung diantaranya : 
+<p></p>
+<ul>
+<li>Postman Collection ( folder postman_collection )</li>
+<li>Database .sql ( Mysql) ( folder db_inventory)</li>
+</ul>
