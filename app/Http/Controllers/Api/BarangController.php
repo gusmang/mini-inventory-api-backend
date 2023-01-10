@@ -74,7 +74,7 @@ class BarangController extends Controller
     public function updateBarang(Request $request, $index)
     {
         $validator = Validator::make($request->all(), [
-            'nama_produk' => 'required|unique:barangs|max:255',
+            'nama_produk' => 'required|max:255',
             'id_kategori' => 'required',
             'harga_beli' => 'required',
             'harga_jual' => 'required',

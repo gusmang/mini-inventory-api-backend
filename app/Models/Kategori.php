@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Kategori extends Model
 {
     use HasFactory, SoftDeletes;
-    use HasFactory;
 
     protected $dates = ['deleted_at'];
 

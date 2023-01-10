@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\BarangController;
 use App\Http\Controllers\Api\KategoriController;
+use App\Http\Controllers\Api\SupplierController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -33,10 +34,10 @@ Route::middleware('auth:api')
         });
 
         Route::group(['namespace' => 'supplier', 'prefix' => 'supplier'], function () {
-            Route::post('list', [KategoriController::class, 'getSupplier']);
-            Route::post('add', [KategoriController::class, 'addSupplier']);
-            Route::put('update/{index}', [KategoriController::class, 'updateKSupplier']);
-            Route::delete('softdelete/{index}', [KategoriController::class, 'softDelete']);
+            Route::post('list', [SupplierController::class, 'getSupplier']);
+            Route::post('add', [SupplierController::class, 'addSupplier']);
+            Route::put('update/{index}', [SupplierController::class, 'updateSupplier']);
+            Route::delete('softdelete/{index}', [SupplierController::class, 'softDelete']);
         });
 
         Route::group(['namespace' => 'barang', 'prefix' => 'barang'], function () {
